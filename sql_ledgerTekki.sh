@@ -40,7 +40,6 @@
 
 installation ()
 {
-
 clear 
 echo "Updating and installing dependencies..."
 
@@ -100,7 +99,7 @@ echo "This program comes with ABSOLUTELY NO WARRANTY"
 echo "PLEASE NOTE:"
 echo "This script will make some fairly major changes to your openSUSE system:"
 echo "- Modifying the main apache2.conf file to handle the SQL Ledger directory which will be in the default document root: /var/www/html"
-echo "If you agree to these changes to your CentOS system please type 'installation'. Any other input will back you out and return to the command line."
+echo "If you agree to these changes to your openSUSE system please type 'installation'. Any other input will back you out and return to the command line."
 read input
 
 if [ "$input" = "installation" ]; then
