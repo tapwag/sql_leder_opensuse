@@ -51,9 +51,9 @@ service apache2 reload
 a2enmod ssl
 a2enmod cgi
 service apache2 restart
-cd /usr/local
+cd /srv/www/htdocs
 git clone git://github.com/Tekki/sql-ledger.git
-cd /usr/local/sql-ledger
+cd /srv/www/htdocs/sql-ledger
 git checkout -b full origin/full
 mkdir spool
 chown -hR  wwwrun. www users templates css spool
@@ -98,7 +98,7 @@ echo "certain conditions; See <http://www.gnu.org/licenses/> for more details"
 echo "This program comes with ABSOLUTELY NO WARRANTY"
 echo "PLEASE NOTE:"
 echo "This script will make some fairly major changes to your openSUSE system:"
-echo "- Modifying the main apache2.conf file to handle the SQL Ledger directory which will be in the default document root: /var/www/html"
+echo "- Modifying the main apache2.conf file to handle the SQL Ledger directory which will be in the default document root: /srv/www/htdocs"
 echo "If you agree to these changes to your openSUSE system please type 'installation'. Any other input will back you out and return to the command line."
 read input
 
