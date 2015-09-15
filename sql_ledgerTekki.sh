@@ -64,15 +64,15 @@ cp sql-ledger /etc/apache2/sites-available/
 cd /etc/apache2/sites-enabled/
 ln -s ../sites-available/sql-ledger 001-sql-ledger
 
-echo "AddHandler cgi-script .pl" >> /etc/httpd/conf/httpd.conf
-echo "Alias /sql-ledger /usr/local/sql-ledger" >> /etc/httpd/conf/httpd.conf
-echo "<Directory /usr/local/sql-ledger>" >> /etc/httpd/conf/httpd.conf
-echo "Options ExecCGI Includes FollowSymlinks" >> /etc/httpd/conf/httpd.conf
-echo "</Directory>" >> /etc/httpd/conf/httpd.conf
-echo "<Directory /usr/local/sql-ledger/users>" >> /etc/httpd/conf/httpd.conf
-echo "Order Deny,Allow" >> /etc/httpd/conf/httpd.conf
-echo "Deny from All" >> /etc/httpd/conf/httpd.conf
-echo "</Directory>" >> /etc/httpd/conf/httpd.conf
+echo "AddHandler cgi-script .pl" >> /etc/apache2/httpd.conf
+echo "Alias /sql-ledger /usr/local/sql-ledger" >> /etc/apache2/httpd.conf
+echo "<Directory /usr/local/sql-ledger>" >> /etc/apache2/httpd.conf
+echo "Options ExecCGI Includes FollowSymlinks" >> /etc/apache2/httpd.conf
+echo "</Directory>" >> /etc/apache2/httpd.conf
+echo "<Directory /usr/local/sql-ledger/users>" >> /etc/apache2/httpd.conf
+echo "Order Deny,Allow" >> /etc/apache2/httpd.conf
+echo "Deny from All" >> /etc/apache2/httpd.conf
+echo "</Directory>" >> /etc/apache2/httpd.conf
 
 
 service apache2 restart
