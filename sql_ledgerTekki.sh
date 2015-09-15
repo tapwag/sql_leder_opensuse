@@ -18,7 +18,7 @@
 # Known issues: The authentication methods are not set correctly
 # in the pg_hba.conf file. peer authentication doesn't work with 
 # SQL Ledger, so please add "trust" (without quotes manually for
-# local connections. The script has been tested on CentOS 6.6
+# local connections. The script has been tested on openSUSE 13.2 
 #
 #======================================================================
 # This program is free software: you can redistribute it and/or modify
