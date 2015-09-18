@@ -55,7 +55,7 @@ git clone git://github.com/Tekki/sql-ledger.git
 cd /srv/www/htdocs/sql-ledger
 git checkout -b full origin/full
 mkdir spool
-chown -hR  wwwrun. www users templates css spool
+chown -hR  wwwrun.www users templates css spool
 cp sql-ledger.conf.default sql-ledger.conf
 cd ~/
 cp sql-ledger /etc/apache2/sites-available/
