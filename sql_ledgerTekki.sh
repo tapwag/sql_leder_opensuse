@@ -45,7 +45,6 @@ echo "Updating and installing dependencies..."
 
 cd
 zypper update 
-zypper install git
 yast2 –i postgresql-server apache2 perl texlive perl-DBD-Pg libapr-util1-dbd-pgsql git
 service apache2 reload
 a2enmod ssl
