@@ -80,10 +80,10 @@ cd
 clear
 echo "Initialising Postgres - Press RETURN to continue"
 read confirmation
-service postgresql initdb
+/sbin/service postgresql initdb
 wget http://www.sql-ledger-network.com/debian/pg_hba.conf --retr-symlinks=no
 cp pg_hba.conf /var/lib/pgsql/data/
-service postgresql start
+/sbin/service postgresql start
 su postgres -c "createuser -d -S -R sql-ledger"
 }
 
