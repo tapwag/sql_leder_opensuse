@@ -13,7 +13,7 @@
 #======================================================================
 #
 # Installation Script for SQL-Ledger Standard Version Tekki version
-# for openSUSE 13.2
+# to be tested on openSUSE Tumbleweed
 #
 # Known issues: The authentication methods are not set correctly
 # in the pg_hba.conf file. peer authentication doesn't work with 
