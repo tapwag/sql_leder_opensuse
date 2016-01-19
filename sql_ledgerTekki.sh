@@ -72,6 +72,20 @@ echo "Order Deny,Allow" >> /etc/apache2/httpd.conf
 echo "Deny from All" >> /etc/apache2/httpd.conf
 echo "</Directory>" >> /etc/apache2/httpd.conf
 
+# Installation of ledgercart
+cd /srv/www/htdocs/
+git clone git://github.com/tapwag/ledgercart.git ledgercart
+cd /srv/www/htdocs/ledger123/users
+wget http://www.sql-ledger-network.com/debian/demo_users.tar.gz --retr-symlinks=no
+tar -xvf demo_users.tar.gz
+cd /var/www/html/ledger123
+wget http://www.sql-ledger-network.com/debian/demo_templates.tar.gz --retr-symlinks=no
+tar -xvf demo_templates.tar.gz
+chown -hR www-data.www-data users templates css spool
+cp sql-ledger.conf.default sql-ledger.conf
+git checkout -b rel3 origin/rel3
+git checkout rel3
+
 
 service apache2 restart
 cd 
@@ -84,8 +98,19 @@ read confirmation
 wget http://www.sql-ledger-network.com/debian/pg_hba.conf --retr-symlinks=no
 cp pg_hba.conf /var/lib/pgsql/data/
 /sbin/service postgresql start
+
 su postgres -c "createuser -d -S -R sql-ledger"
 }
+
+# Initialization of Postgres for ledgercart
+service postgresql restart
+su postgres -c "createuser -d -S -R sql-ledger"
+su postgres -c "createdb ledgercart"
+su postgres -c "psql ledgercart < /var/www/html/ledger123/ledgercart/sql/ledgercart.sql"
+su postgres -c "psql ledgercart < /var/www/html/ledger123/ledgercart/sql/schema.sql"
+su postgres -c "psql -U postgres ledgercart < /var/www/html/ledger123/sql/Pg-custom_tables.sql"
+cp /var/www/html/ledger123/ledgercart/config-default.pl /var/www/html/ledger123/ledgercart/config.pl
+
 
 
 # Main program
